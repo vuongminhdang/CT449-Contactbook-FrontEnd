@@ -37,5 +37,12 @@ export default {
     </div>
 </template>
 
+<style>
+    .input-group{
+        display: flex;
+        justify-content: center;
+    }
+</style>
+
 
     
