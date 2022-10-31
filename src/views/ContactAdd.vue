@@ -1,26 +1,39 @@
 <template>
-    <div class="page">
-        <h4>Thêm liên hệ</h4>
-         <ContactForm
-        />
-        <p>{{ message }}</p>
+    <div>
+        <ContactForm :contact="contact" @submit:contact="createdContact" />
     </div>
 </template>
 
 <script>
-    import ContactForm from "@/components/ContactForm.vue";
-    export default {
-        components: {
-            ContactForm,
+import ContactForm from "../components/ContactForm.vue";
+import ContactService from "@/services/contact.service";
+export default {
+    data() {
+        return {
+            contact: {
+                name: "",
+                email: "",
+                address: "",
+                phone: "",
+            },
+            message: "",
+        };
+    },
+    components: {
+        ContactForm,
+    },
+    methods: {
+        async createdContact(data) {
+            try {
+                await ContactService.create(data);
+                this.message = "Đã tạo liên hệ thành công";
+                alert(this.message);
+            } catch (error) {
+                console.log(error);
+            }
         },
-        props: {
-            id: { type: String, required: true },
-        },
-        data() {
-            return {
-                contact: null,
-                message: "",
-            };
-        },
-    }
+    },
+};
 </script>
+
+<style></style>
