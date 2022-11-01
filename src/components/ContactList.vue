@@ -26,3 +26,9 @@
         </li>
     </ul>
 </template>
+
+<style>
+    .list-group-item{
+        width: 100%;
+    }
+</style>

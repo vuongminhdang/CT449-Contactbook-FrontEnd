@@ -154,6 +154,9 @@
 text-align: left;
 max-width: 750px;
 }
+.mt-2 {
+    margin-right: 10px;
+}
 </style>
 
 
